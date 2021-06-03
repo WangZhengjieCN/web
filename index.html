@@ -1,0 +1,82 @@
+<html>
+<title>基于机器学习的馥郁香型基酒质量等级分类系统</title>
+<head>
+<!-- stylesheets -->
+<link href="/static/main.css" type="text/css" rel="stylesheet">
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script>
+
+  function getFileName(o){
+    var pos=o.lastIndexOf("\\");
+    return o.substring(pos+1);  
+  }
+  
+  $(function() {
+    $("#selectButton").click(function() {
+      $("#uploadfile").click();
+    })
+
+    $("#uploadfile").change(function() {
+      var fp = $("#uploadfile").val();
+      var fn = getFileName(fp);
+      $("#filepath").val(fn);
+    });
+  })
+</script>
+</head>
+<body>
+<div>
+  <div class="header">
+    <h1 class="center-container">基于机器学习的馥郁香型基酒质量等级分类系统</h1>
+    <h3 class="center-container">预测基酒等级 </h3>
+  </div>
+
+  <div class="input">
+    <p style="font-style:italic">请导入包含基酒信息的csv文件，具体格式请参考示例文件<br /><a href="./downloads/test.zip" download="test.zip">下载示例文件</a></p>
+    <form class="flex-box" action="" method=post enctype=multipart/form-data>
+        <label style="font-weight: bold">选择数据文件</label>
+        <div class="select">
+          <input type="text" class="filepath" id="filepath" readonly unselectable="on">
+        </div>
+        <div>
+          <button type="button" id="selectButton" class="button">选择数据</button>
+          <input type="file" name="uploadfile" id="uploadfile" style="display:none">
+          <input type="submit" value="上传数据" class="button" />
+        </div>
+    </form>
+  </div>
+
+  <div class="result">
+    <h2>预测分类结果</h2>
+    <!-- <a href="./downloads/test.zip" download="test.zip">下载预测结果</a> -->
+    <div class="table" id="results-table">
+      <div class="table-header-group">
+          <ul class="table-row">
+            <li class="table-cell">基酒编号</li>
+            <li class="table-cell">生产时间</li>
+            <li class="table-cell">基酒类别</li>
+            <li class="table-cell">预测结果（概率）</li>
+          </ul>
+      </div>
+      <div class="table-row-group">
+        {% block content %}
+        {% endblock %}
+        
+      </div>
+
+   <ul class="table-row">
+    <!-- <li class="table-cell"><img width="300px" height="300px" src="../static/show1.png" alt="Results show"></li>
+    <li class="table-cell"><img width="300px" height="300px" src="../static/show2.png" alt="Results show"></li>
+    <li class="table-cell"><img width="300px" height="300px" src="../static/show3.png" alt="Results show"></li>
+    <li class="table-cell"><img width="300px" height="300px" src="../static/show4.png" alt="Results show"></li> -->
+      <p style="font-size: 1rem; padding: 10px"></p>
+      <p style="font-size: 1rem; padding: 10px"></p>
+      <p style="font-size: 1rem; padding: 10px"></p>
+    </li>
+  </ul>
+    </div>
+  </div>
+</div>  
+</div>
+</body>
+</html>

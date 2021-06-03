@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block content %}
+<!-- <th style="text-align:center">
+<img width="300px" height="300px" src="{{imagesource}}" />
+</th>
+<th style="text-align:center; font-size:medium">
+    <p>{{label1}}</p>
+    <p>{{label2}}</p>
+    <p>{{label3}}</p>
+</th> -->
+<ul class="table-row">
+    <li class="table-cell">
+        <p style="font-size: 1rem; padding: 10px">{{Jijiu_num}}</p>
+    </li>
+    <li class="table-cell">
+        <p style="font-size: 1rem; padding: 10px;">{{Time}}</p>
+    </li>
+    <li class="table-cell">
+        <p style="font-size: 1rem; padding: 10px;">{{Category}}</p>
+    </li>
+    <li class="table-cell">
+        <p style="font-size: 1rem; padding: 10px">{{label1}}</p>
+        <p style="font-size: 1rem; padding: 10px">{{label2}}</p>
+        <p style="font-size: 1rem; padding: 10px">{{label3}}</p>
+        <p style="font-size: 1rem; padding: 10px">{{label4}}</p>
+        <p style="font-size: 1rem; padding: 10px">{{label5}}</p>
+    </li>
+</ul>
+<ul class="table-row">
+    <a href="./downloads/result.csv" download="result.csv">下载预测结果</a>
+</ul>
+
+{% endblock %}
